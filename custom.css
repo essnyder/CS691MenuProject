@@ -5,12 +5,12 @@ html {overflow-y: scroll;}
 
 body {
 	margin: 20px;
-	color: #ffa07a;
-	font-size: 15px;
+	color: #ffffff;
+	font-size: 16px;
 	text-align: center;
 	background: #163b60;
 	font-family: Verdana;
-	background-image: url("../guild_forums/styles/art_black/theme/images/pattern.png");
+	background-image: url("images/pattern.png");
 }
 
 a {outline: none;}
@@ -35,6 +35,8 @@ a:hover, a:active {color: #f04343;}
 
 .justify {text-align: justify;}
 
+smallPoint {font-size: 12px;}
+
 /*******************/
 /***** Content *****/
 /*******************/
@@ -57,7 +59,6 @@ a:hover, a:active {color: #f04343;}
 	background: #303030;
 	vertical-align: middle;
 	border: 1px solid #000000;
-	background-image: url("guild_forums/styles/art_black/theme/images/white10.png");
 }
 
 #navBar a, #navBar a:visited {
@@ -67,15 +68,49 @@ a:hover, a:active {color: #f04343;}
 	text-align: center;
 }
 
-.titleBar {
+.tagline {
+	width: 1188px;
+	margin: 6px 0;
+	color: #ffffff;
+	padding: 14px 6px;
+	border-radius: 5px;
+	background: #163b60;
+	border: 1px solid #000000;
+}
+
+.item {
+	clear: both;
 	width: 1188px;
 	margin: 6px 0;
 	color: #ffffff;
 	padding: 4px 6px;
+	text-align: left;
+	min-height: 155px;
 	border-radius: 5px;
+	position: relative;
 	background: #163b60;
-	border: 1px solid #000000;
-	background-image: url("guild_forums/styles/art_black/theme/images/white10.png");
+	border: 1px solid #000000;	
+}
+
+.item dl {margin-right: 30px;}
+
+.item dt {
+	float: left;
+	margin: 0 15px 0 30px
+}
+
+.item dd:first-of-type {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.item dd:nth-of-type(3) {font-size: 12px;}
+
+.item dd:last-of-type {
+	right: 30px;
+	bottom: 15px;
+	font-size: 16px;
+	position: absolute;
 }
 
 .section {
@@ -131,46 +166,6 @@ legend {
 	line-height: 1.5em;
 }
 
-dl {
-	margin: 0;
-	padding: 0;
-	width: 310px;
-}
-
-dl.wide {
-	width: 525px;
-	margin: 22px;
-	text-align: center;
-}
-
-dl.addUnit {
-	width: 500px;
-	margin: 22px;
-	text-align: center;
-}
-
-dt {
-	clear: both;
-	float: left;
-	width: 150px;
-	height: 28px;
-	text-align: right;
-}
-
-.wide dt {width: 225px;}
-
-dd {
-	margin: 0;
-	padding: 0;
-	float: left;
-	height: 28px;
-	text-align: left;
-	margin-left: 10px;
-}
-
-.wide dd {width: 200px;}
-
-.addUnit dd {width: 300px;}
 
 label {
 	padding-top: 3px;
