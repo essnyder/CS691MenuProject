@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>CS691 - Login Success Page</title>
+	<title>CS691 - Login Page</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="custom.css" type="text/css">
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
@@ -23,26 +23,8 @@
 		<div class="section">
 			<p><?php echo $_GET['status'] ?></p>
 		</div>
-        
-        <div class="login">
-        	<form action="verify-user.php" method="post" enctype="multipart/form-data">
-                <label for="entry">Select Item to Edit:</label>
-                <select name="entry" id="entry">
-                    <?php
-                        $query = "SELECT entry FROM menu";
-                        $result = mysql_query($query);
-                        echo "<option>--Select--</option>\n";
-                        while ($row = mysql_fetch_array($result)) {
-                            echo "<option>" . $row[0] . "</option>\n";
-                        }
-                    ?>				
-                </select>
-		</div>
-	</div>
-<?php include_once("library/footer.php"); ?>
-
 		<div class="login">
-            <form action="verify-user.php" method="post" enctype="multipart/form-data">
+            <form class="center" action="verify-user.php" method="post" enctype="multipart/form-data">
                 <p><label for="user_name">User Name:</label></p>
                 <p><input class="textbox" type="text" name="user_name" id="user_name" required></p>
                 <p><label for="user_password">User Password:</label></p>
@@ -50,4 +32,5 @@
                 <p><input class="submit" type="submit" name="submit" value="Login"></p>
             </form>
      	</div>
-
+	</div>
+<?php include_once("library/footer.php"); ?>

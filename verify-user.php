@@ -1,21 +1,21 @@
 <?php
-$user_email = $_POST['user_email'];
-$user_password = md5($_POST['user_password']);
+$user_name = $_POST['user_name'];
+$user_password = $_POST['user_password'];
 
-$filename = "users.php";
-$file = fopen($filename, "r");
-$userlist = fread($file, filesize($filename));
-fclose($file);
-
-$userdata = explode("\n", $userlist);
-foreach ($userdata as $arrayrow) {
-	$datapair = explode("|", $arrayrow);
-	if ($datapair[0] == $user_email && $datapair[1] == $user_password) {
-		header("Location: http://pactusaquilus.com/CS691/login-success.php?user_email=$user_email");
-		die();
-	}
+if ($user_name == "Admin" && $user_password == "Admin") {
+	header("Location: http://cs691.pactusaquilus.com/login-success.php?status=Logged%20in%20as%20Admin");
+	die();	
 }
-
-header("Location: http://pactusaquilus.com/CS691/login-failure.php?user_email=$user_email");
-die();
+elseif ($user_name == "Owner" && $user_password == "Owner") {
+	header("Location: http://cs691.pactusaquilus.com/login-success.php?status=Logged%20in%20as%20Owner");
+	die();	
+}
+elseif ($user_name == "Staff" && $user_password == "Staff") {
+	header("Location: http://cs691.pactusaquilus.com/login-success.php?status=Logged%20in%20as%20Staff");
+	die();
+}
+else {
+	header("Location: http://cs691.pactusaquilus.com/login.php?status=Failed%20to%20Login");
+	die();
+}
 ?>

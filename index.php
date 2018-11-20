@@ -25,14 +25,14 @@
 		</div>
         
 		<?php 
-			$query = "SELECT * FROM menu WHERE catagory = 'entree'";
+			$query = "SELECT * FROM menu WHERE catagory = 'entree' AND active = 1";
 			$result = mysql_query($query); 
 			
 			while ($item = mysql_fetch_array($result)) {
 				echo "<div class='item'>";
 					echo "<dl>";
 						echo "<dt><img src='data:image/jpeg;base64," . base64_encode($item['image']) . "'></dt>";					
-						echo "<dd>" . $item['entree'] . "</dd>";
+						echo "<dd>" . $item['entry'] . "</dd>";
 						echo "<dd>" . $item['ingredients'] . "</dd>";
 						if ($item['allergens']) {
 							echo "<dd>Allergens: " . $item['allergens'] . "</dd>";
@@ -48,14 +48,14 @@
 		</div>
         
 		<?php 
-			$query = "SELECT * FROM menu WHERE catagory = 'dessert'";
+			$query = "SELECT * FROM menu WHERE catagory = 'dessert' AND active = 1";
 			$result = mysql_query($query); 
 			
 			while ($item = mysql_fetch_array($result)) {
 				echo "<div class='item'>";
 					echo "<dl>";					
 						echo "<dt><img src='data:image/jpeg;base64," . base64_encode($item['image']) . "'></dt>";
-						echo "<dd>" . $item['entree'] . "</dd>";
+						echo "<dd>" . $item['entry'] . "</dd>";
 						echo "<dd>" . $item['ingredients'] . "</dd>";
 						if ($item['allergens']) {
 							echo "<dd>Allergens: " . $item['allergens'] . "</dd>";
@@ -71,14 +71,14 @@
 		</div>
         
 		<?php 
-			$query = "SELECT * FROM menu WHERE catagory = 'beverage'";
+			$query = "SELECT * FROM menu WHERE catagory = 'beverage' AND active = 1";
 			$result = mysql_query($query); 
 			
 			while ($item = mysql_fetch_array($result)) {
 				echo "<div class='item'>";
 					echo "<dl>";					
 						echo "<dt><img src='data:image/jpeg;base64," . base64_encode($item['image']) . "'></dt>";
-						echo "<dd>" . $item['entree'] . "</dd>";
+						echo "<dd>" . $item['entry'] . "</dd>";
 						echo "<dd>" . $item['ingredients'] . "</dd>";
 						if ($item['allergens']) {
 							echo "<dd>Allergens: " . $item['allergens'] . "</dd>";

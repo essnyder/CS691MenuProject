@@ -123,10 +123,16 @@ smallPoint {font-size: 12px;}
 	border: 1px solid #000000;
 }
 	
-.thumbs {
-	float: right;
-	width: 100px;
-	margin: 25px 22px 0 0;
+.login {
+	width: 1188px;
+	margin: 6px 0;
+	color: #ffffff;
+	padding: 4px 6px;
+	text-align: center;
+	border-radius: 5px;
+	position: relative;
+	background: #163b60;
+	border: 1px solid #000000;	
 }
 
 footer {

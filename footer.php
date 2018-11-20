@@ -1,3 +1,3 @@
-	<footer><a href="login.php">Login</a></footer>
+	<footer><?php //<a href="login.php?status=Login">Login</a> ?></footer>
 </body>
 </html>
