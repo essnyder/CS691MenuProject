@@ -1,2 +1,0 @@
-essnyder@bsu.edu|c8a09a7e8f0331a489cb5730e93e6cc1
-njwhite2@bsu.edu|c637d089b9de478173276fb4184c805e
