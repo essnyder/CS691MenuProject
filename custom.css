@@ -88,15 +88,6 @@ a:hover, a:active {color: #f04343;}
 	border: 1px solid #000000;
 }
 	
-img{border: 3px outset white;}
-
-.img {
-	float: left;
-	width: 406px;
-	text-align: left;
-	margin: 25px 10px 0 0;
-}	
-
 .thumbs {
 	float: right;
 	width: 100px;
@@ -177,8 +168,6 @@ dd {
 	margin-left: 10px;
 }
 
-dd img {display: none;}
-
 .wide dd {width: 200px;}
 
 .addUnit dd {width: 300px;}
@@ -221,39 +210,3 @@ li {
 }
 
 fieldset .submit {margin: 10px auto;}
-/***********************/
-/***** View Tables *****/
-/***********************/
-table {
-	border: 0;
-	font-size: 12px;
-	margin: 22px auto;
-	border-spacing: 1px;
-}
-	
-table thead tr {
-	position: relative;
-	vertical-align: middle;	
-	background: #000000 !important;
-}
-
-table tr:nth-child(odd) {background: #666666;}
-
-table tr:nth-child(even) {background: #000000;}
-	
-table thead td {
-	padding: 5px;
-	font-size: 15px;
-}
-	
-table thead td img {padding-top: 3px;}
-	
-table tbody tr td:first-child + td {/* left justifying the Name column */
-	width: 60px;
-	text-align: left; 
-} 
-
-table td {
-	white-space: nowrap;
-	padding: .5em .5em;
-}

@@ -9,6 +9,7 @@
 </head>
 <body>
 	<div id="content">
+    	<img src="images/logo.png" alt="logo">
 		<?php include_once("library/navBar.php"); ?>
 		<div class="titleBar">
 			Welcome Bob
