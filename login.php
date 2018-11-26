@@ -10,39 +10,40 @@
 </head>
 <body>
 	<div id="content">
-    	<img src="images/logo.png" alt="logo">
-        
+    	<img src="images/logo.png" alt="logo">        
 		<?php 
-			$query = "SELECT message FROM tagline";
+			$query = "SELECT * FROM tagline";
 			$result = mysql_query($query);
-			$tagline = mysql_result($result, 0); 
+			$tagline = mysql_fetch_array($result); 
 
-			echo "<div class='tagline'>" . $tagline . "</div>";
-		?>
-        
-		<div class="category">
+			echo "<div class='tagline'>\n";
+				echo "<h" . $tagline['style'] . ">" . $tagline['message'] . "</h" . $tagline['style'] . ">\n";
+			echo "</div>\n";
+		?>        
+		<div class="category">			
 			<?php
             	if ($_GET['status'] == "Failed to Login") {
             		$class = "red";
                 } else {
                 	$class = "white";
                 }
-            	echo '<p class="' . $class . '">' . $_GET['status'] . '</p>';
-			?>
+            	echo "<p class=\"" . $class . "\">" . $_GET['status'] . "</p>\n";
+			?>           
 		</div>
-		<div class="login">
-            <form class="center" action="verify-user.php" method="post" enctype="multipart/form-data">
+		<div class="form">
+            <form class="center" action="verify-user.php" method="post">
                 <p>
-                	<label for="user_rank">User Rank:</label>
-                	<input class="textbox" type="text" name="user_rank" id="user_rank" required>
+                	<label for="user_rank">User Rank:</label><br>
+                	<input class="text" type="text" name="user_rank" id="user_rank" required>
                 </p>
                 <p>
-                	<label for="user_password">User Password:</label>
-                	<input class="textbox" type="password" name="user_password" id="user_password" required>
+                	<label for="user_password">User Password:</label><br>
+                	<input class="text" type="password" name="user_password" id="user_password" required>
                 </p>                                                                                          	
                 <p><input class="submit" type="submit" name="submit" value="Login"></p>
             </form>
      	</div>
 	</div>
+    <footer><a href="index.php">Back to Menu</a></footer>
 </body>
 </html>

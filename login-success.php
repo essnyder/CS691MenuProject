@@ -1,8 +1,11 @@
-<?php include_once("db-vars.php"); ?>
+<?php 
+	session_start();
+	include_once("db-vars.php"); 
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>CS691 - Login Success Page</title>
+	<title>CS691 - Edit Menu Page</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="custom.css" type="text/css">
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
@@ -10,30 +13,34 @@
 </head>
 <body>
 	<div id="content">
-    	<img src="images/logo.png" alt="logo">
-        
+    	<img src="images/logo.png" alt="logo">        
 		<?php 
-			$query = "SELECT message FROM tagline";
+			$query = "SELECT * FROM tagline";
 			$result = mysql_query($query);
-			$tagline = mysql_result($result, 0); 
+			$tagline = mysql_fetch_array($result); 
 
-			echo "<div class='tagline'>" . $tagline . "</div>";
-		?>
-        
+			echo "<div class='tagline'>\n";
+				echo "<h" . $tagline['style'] . ">" . $tagline['message'] . "</h" . $tagline['style'] . ">\n";
+			echo "</div>\n";
+		?>       
 		<div class="category">
 			<?php
-            	echo "<p>" . $_GET['status'] . "</p>";
+            	echo "<p>" . $_GET['status'] . "</p>\n";
 			?>
-		</div>
-        
-        <div class="login">
+		</div>        
+        <div class="form">
         	<form action="edit-menu.php" method="post">
                 <label for="entry">Select Item to Edit:</label>
-                <select name="entry" id="entry">
+                <select class="text" name="entry" id="entry">
                 	<option>--Select--</option>
                     <?php
-						if ($_GET['status'] != "Logged in as Staff") {
+						if  (($_SESSION['user_rank'] == "Owner") || ($_SESSION['user_rank'] == "Admin")) {
+							echo "<option>Add New Item</option>\n";
 							echo "<option>Tagline</option>\n";							
+						} elseif ($_SESSION['user_rank'] != "Staff") {
+							session_destroy();
+							header("Location: login.php?status=Failed%20to%20Login");
+							die();
 						}
 
                         $query = "SELECT entry FROM menu";
@@ -42,12 +49,12 @@
 						while ($row = mysql_fetch_array($result)) {
 							echo "<option>" . $row[0] . "</option>\n";
 						}
-                    ?>				
-                
+                    ?>				               
                 </select>
                 <p><input class="submit" type="submit" name="submit" value="Edit"></p>
         	</form>
 		</div>
 	</div>
+    <footer><a href="logout.php">Back to Menu</a></footer>
 </body>
 </html>

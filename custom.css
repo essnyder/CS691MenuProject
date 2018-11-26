@@ -29,6 +29,17 @@ h1, h2, h3 {
 }
 
 h2 {
+	display: block;
+	background-image: url(images/fire.jpg);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-animation: fire 8s linear infinite;
+	-webkit-backface-visibility: hidden;
+}
+
+@keyframes fire {100% {background-position: 0% 100%;}}
+
+h3 {
 	background: #ffffff -webkit-gradient(linear, left top, right top, from(#000000), to(#ffffff), color-stop(0.5, #000000)) 0 0 no-repeat;
 		background-size: auto auto;
 		background-clip: border-box;
@@ -44,17 +55,6 @@ h2 {
 	0% {background-position: top left;}
 	100% {background-position: top right;}
 }
-
-h3 {
-	display: block;
-	background-image: url(images/fire.jpg);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	-webkit-animation: fire 8s linear infinite;
-	-webkit-backface-visibility: hidden;
-}
-
-@keyframes fire {100% {background-position: 0% 100%;}}
 
 /**************************/
 /***** Basic Concepts *****/
@@ -129,6 +129,8 @@ h3 {
 
 .item dt {
 	float: left;
+	width: 125px;
+	height: 125px;
 	margin: 0 15px 0 30px
 }
 
@@ -163,7 +165,7 @@ footer {
 /***********************/
 /***** Login Page  *****/
 /***********************/
-.login {
+.form {
 	width: 1188px;
 	margin: 6px 0;
 	color: #ffffff;
@@ -183,27 +185,6 @@ form {
 	background: transparent;
 }
 
-.padded {padding: 0 23px;}
-
-fieldset {
-	width: 320px;
-	padding: 8px;
-	border-radius: 5px;
-	border: 3px solid #ffffff;
-}
-
-#addUnit fieldset {width: 400px;}
-
-.manager fieldset {margin: 0 auto;}
-
-legend {
-	color: #ffffff;
-	font-size: 20px;
-	font-weight: bold;
-	line-height: 1.5em;
-}
-
-
 label {
 	padding-top: 3px;
 	font-weight: bold;
@@ -218,21 +199,11 @@ input, select, textarea {
 
 input:hover, select:hover {cursor: pointer;}
 	
-input {padding-left: 4px;} /* Adjust left side padding to match the auto-padding in a select */
+input {padding-left: 4px;}
 
-ul {
-	margin: 0;
-	padding: 0;
-	width: 1100px;	
-	list-style-type: none;
-}
-
-li {
-	float: left;
-	width: 275px;
-	display: block;
-	text-align: center;
-	padding-bottom: 10px;
+.text{
+	height: 20px;
+	width: 400px;
 }
 
 .submit {
@@ -240,5 +211,3 @@ li {
 	height: 30px;
 	text-align: center;
 }
-
-fieldset .submit {margin: 10px auto;}
