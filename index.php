@@ -1,8 +1,8 @@
-<?php include_once("db_vars.php"); ?>
+<?php include_once("db-vars.php"); ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>CS691 - Group Project</title>
+	<title>CS691 - Home Page</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" href="custom.css" type="text/css">
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
@@ -13,85 +13,88 @@
     	<img src="images/logo.png" alt="logo">
         
 		<?php 
-			$query = "SELECT message FROM tagline";
+			$query = "SELECT * FROM tagline";
 			$result = mysql_query($query);
-			$tagline = mysql_result($result, 0); 
+			$tagline = mysql_fetch_array($result, 0); 
 
-			echo "<div class='tagline'>" . $tagline . "</div>";
+			echo "<div class='tagline'>\n";
+				echo "<h" . $tagline['style'] . ">" . $tagline['message'] . "</h" . $tagline['style'] . ">\n";
+			echo "</div>\n";
 		?>
         
-		<div class="section">
+		<div class="category">
 			<p>Entrees</p>
 		</div>
         
 		<?php 
-			$query = "SELECT * FROM menu WHERE catagory = 'entree' AND active = 1";
+			$query = "SELECT * FROM menu WHERE category = 'entree' AND active = 1";
 			$result = mysql_query($query); 
 			
 			while ($item = mysql_fetch_array($result)) {
-				echo "<div class='item'>";
-					echo "<dl>";
-						echo "<dt><img src='data:image/jpeg;base64," . base64_encode($item['image']) . "'></dt>";					
-						echo "<dd>" . $item['entry'] . "</dd>";
-						echo "<dd>" . $item['ingredients'] . "</dd>";
+				echo "<div class='item'>\n";
+					echo "<dl>\n";
+						echo "<dt><img src='data:image/jpeg;base64," . base64_encode($item['image']) . "'></dt>\n";					
+						echo "<dd>" . $item['entry'] . "</dd>\n";
+						echo "<dd>" . $item['ingredients'] . "</dd>\n";
 						if ($item['allergens']) {
-							echo "<dd>Allergens: " . $item['allergens'] . "</dd>";
+							echo "<dd>Allergens: " . $item['allergens'] . "</dd>\n";
 						}
-						echo "<dd>$" . $item['price'] . "</dd>";					
-					echo "</dl>";
-				echo "</div>";
+						echo "<dd>$" . $item['price'] . "</dd>\n";					
+					echo "</dl>\n";
+				echo "</div>\n";
 			}
 		?>
         
-		<div class="section">
+		<div class="category">
 			<p>Desserts</p>
 		</div>
         
 		<?php 
-			$query = "SELECT * FROM menu WHERE catagory = 'dessert' AND active = 1";
+			$query = "SELECT * FROM menu WHERE category = 'dessert' AND active = 1";
 			$result = mysql_query($query); 
 			
 			while ($item = mysql_fetch_array($result)) {
-				echo "<div class='item'>";
-					echo "<dl>";					
-						echo "<dt><img src='data:image/jpeg;base64," . base64_encode($item['image']) . "'></dt>";
-						echo "<dd>" . $item['entry'] . "</dd>";
-						echo "<dd>" . $item['ingredients'] . "</dd>";
+				echo "<div class='item'>\n";
+					echo "<dl>\n";					
+						echo "<dt><img src='data:image/jpeg;base64," . base64_encode($item['image']) . "'></dt>\n";
+						echo "<dd>" . $item['entry'] . "</dd\n>";
+						echo "<dd>" . $item['ingredients'] . "</dd>\n";
 						if ($item['allergens']) {
-							echo "<dd>Allergens: " . $item['allergens'] . "</dd>";
+							echo "<dd>Allergens: " . $item['allergens'] . "</dd>\n";
 						}
-						echo "<dd>$" . $item['price'] . "</dd>";					
-					echo "</dl>";
-				echo "</div>";
+						echo "<dd>$" . $item['price'] . "</dd>\n";					
+					echo "</dl>\n";
+				echo "</div>\n";
 			}
 		?>
         
-		<div class="section">
+		<div class="category">
 			<p>Beverages</p>
 		</div>
         
 		<?php 
-			$query = "SELECT * FROM menu WHERE catagory = 'beverage' AND active = 1";
+			$query = "SELECT * FROM menu WHERE category = 'beverage' AND active = 1";
 			$result = mysql_query($query); 
 			
 			while ($item = mysql_fetch_array($result)) {
-				echo "<div class='item'>";
-					echo "<dl>";					
-						echo "<dt><img src='data:image/jpeg;base64," . base64_encode($item['image']) . "'></dt>";
-						echo "<dd>" . $item['entry'] . "</dd>";
-						echo "<dd>" . $item['ingredients'] . "</dd>";
+				echo "<div class='item'>\n";
+					echo "<dl>\n";					
+						echo "<dt><img src='data:image/jpeg;base64," . base64_encode($item['image']) . "'></dt>\n";
+						echo "<dd>" . $item['entry'] . "</dd\n>";
+						echo "<dd>" . $item['ingredients'] . "</dd>\n";
 						if ($item['allergens']) {
-							echo "<dd>Allergens: " . $item['allergens'] . "</dd>";
+							echo "<dd>Allergens: " . $item['allergens'] . "</dd>\n";
 						}
-						echo "<dd>$" . $item['price'] . "</dd>";					
-					echo "</dl>";
-				echo "</div>";
+						echo "<dd>$" . $item['price'] . "</dd>\n";					
+					echo "</dl>\n";
+				echo "</div>\n";
 			}
 		?>
 
-		<div class="section smallPoint">
+		<div class="warning">
 			<p>"Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of food borne illness."</p>
-		</div>
-                                
+		</div>                              
 	</div>
-<?php include_once("library/footer.php"); ?>
+	<footer><a href="login.php?status=Login">Login</a></footer>
+</body>
+</html>

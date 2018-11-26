@@ -1,4 +1,4 @@
-<?php include_once("db_vars.php"); ?>
+<?php include_once("db-vars.php"); ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -20,17 +20,29 @@
 			echo "<div class='tagline'>" . $tagline . "</div>";
 		?>
         
-		<div class="section">
-			<p><?php echo $_GET['status'] ?></p>
+		<div class="category">
+			<?php
+            	if ($_GET['status'] == "Failed to Login") {
+            		$class = "red";
+                } else {
+                	$class = "white";
+                }
+            	echo '<p class="' . $class . '">' . $_GET['status'] . '</p>';
+			?>
 		</div>
 		<div class="login">
             <form class="center" action="verify-user.php" method="post" enctype="multipart/form-data">
-                <p><label for="user_name">User Name:</label></p>
-                <p><input class="textbox" type="text" name="user_name" id="user_name" required></p>
-                <p><label for="user_password">User Password:</label></p>
-                <p><input class="textbox" type="password" name="user_password" id="user_password" required></p>                                                                                          	
+                <p>
+                	<label for="user_rank">User Rank:</label>
+                	<input class="textbox" type="text" name="user_rank" id="user_rank" required>
+                </p>
+                <p>
+                	<label for="user_password">User Password:</label>
+                	<input class="textbox" type="password" name="user_password" id="user_password" required>
+                </p>                                                                                          	
                 <p><input class="submit" type="submit" name="submit" value="Login"></p>
             </form>
      	</div>
 	</div>
-<?php include_once("library/footer.php"); ?>
+</body>
+</html>

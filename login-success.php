@@ -1,4 +1,4 @@
-<?php include_once("db_vars.php"); ?>
+<?php include_once("db-vars.php"); ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -20,34 +20,34 @@
 			echo "<div class='tagline'>" . $tagline . "</div>";
 		?>
         
-		<div class="section">
-			<p><?php echo $_GET['status'] ?></p>
+		<div class="category">
+			<?php
+            	echo "<p>" . $_GET['status'] . "</p>";
+			?>
 		</div>
         
         <div class="login">
-        	<form action="verify-user.php" method="post" enctype="multipart/form-data">
+        	<form action="edit-menu.php" method="post">
                 <label for="entry">Select Item to Edit:</label>
                 <select name="entry" id="entry">
+                	<option>--Select--</option>
                     <?php
+						if ($_GET['status'] != "Logged in as Staff") {
+							echo "<option>Tagline</option>\n";							
+						}
+
                         $query = "SELECT entry FROM menu";
                         $result = mysql_query($query);
-                        echo "<option>--Select--</option>\n";
-                        while ($row = mysql_fetch_array($result)) {
-                            echo "<option>" . $row[0] . "</option>\n";
-                        }
+                        													
+						while ($row = mysql_fetch_array($result)) {
+							echo "<option>" . $row[0] . "</option>\n";
+						}
                     ?>				
+                
                 </select>
+                <p><input class="submit" type="submit" name="submit" value="Edit"></p>
+        	</form>
 		</div>
 	</div>
-<?php include_once("library/footer.php"); ?>
-
-		<div class="login">
-            <form action="verify-user.php" method="post" enctype="multipart/form-data">
-                <p><label for="user_name">User Name:</label></p>
-                <p><input class="textbox" type="text" name="user_name" id="user_name" required></p>
-                <p><label for="user_password">User Password:</label></p>
-                <p><input class="textbox" type="password" name="user_password" id="user_password" required></p>                                                                                          	
-                <p><input class="submit" type="submit" name="submit" value="Login"></p>
-            </form>
-     	</div>
-
+</body>
+</html>
