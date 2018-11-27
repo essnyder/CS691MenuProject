@@ -101,7 +101,7 @@ h3 {
 
 .white {color: #ffffff;}
 
-.category {
+.category, .order {
 	width: 1180px;
 	margin: 6px 0;
 	color: #ffffff;
@@ -110,6 +110,8 @@ h3 {
 	background: #383838;
 	border: 1px solid #000000;
 }
+
+.order {text-align: right;}
 
 .item {
 	clear: both;
@@ -125,7 +127,21 @@ h3 {
 	border: 1px solid #000000;	
 }
 
-.item dl {margin-right: 30px;}
+.director {
+	width: 1188px;
+	margin: 6px 0;
+	color: #ffffff;
+	padding: 4px 6px;
+	border-radius: 5px;
+	position: relative;
+	background: #163b60;
+	border: 1px solid #000000;	
+}
+
+.item dl {
+	float: left;
+	width: 1123px;
+}
 
 .item dt {
 	float: left;
@@ -134,7 +150,7 @@ h3 {
 	margin: 0 15px 0 30px
 }
 
-.item dd:first-of-type {
+.item dd:first-of-type, .director dd:first-of-type {
 	font-size: 24px;
 	font-weight: bold;
 }
@@ -192,6 +208,7 @@ label {
 }
 
 input, select, textarea {
+	height: 20px;
 	color: #ffffff;
 	text-align: left;
 	background-color: #163b60;
@@ -206,8 +223,37 @@ input {padding-left: 4px;}
 	width: 400px;
 }
 
+.quantity {
+	width: 30px;
+	height: 50px;
+	margin-top: 5px;
+	font-size: 30px;
+	line-height: 30px;
+	text-align: center;
+	background-color: #000000;	
+}
+
+.server {
+	width: 200px;
+	height: 20px;
+	margin-top: 5px;
+	font-size: 20px;
+	line-height: 20px;
+	text-align: center;
+	background-color: #000000;	
+}
+
 .submit {
 	width: 160px;
 	height: 30px;
 	text-align: center;
+}
+
+/***********************/
+/***** Print Media *****/
+/***********************/
+@media print {
+   * {text-align: left;}
+   #content {width: 800px;}
+   img, form, .category, .tagline {display: none;}
 }

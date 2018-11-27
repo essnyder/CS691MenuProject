@@ -15,6 +15,10 @@ elseif ($_SESSION['user_rank'] == "Staff" && $_SESSION['user_password'] == "Staf
 	header("Location: login-success.php?status=Logged%20in%20as%20Staff");
 	die();
 }
+elseif ($_SESSION['user_rank'] == "Director" && $_SESSION['user_password'] == "Director") {
+	header("Location: director.php?status=Logged%20in%20as%20Director");
+	die();
+}
 else {
 	session_destroy();
 	header("Location: login.php?status=Failed%20to%20Login");

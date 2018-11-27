@@ -35,6 +35,7 @@
                 	<option>--Select--</option>
                     <?php
 						if  (($_SESSION['user_rank'] == "Owner") || ($_SESSION['user_rank'] == "Admin")) {
+							echo "<option>Run Reports</option>\n";
 							echo "<option>Add New Item</option>\n";
 							echo "<option>Tagline</option>\n";							
 						} elseif ($_SESSION['user_rank'] != "Staff") {

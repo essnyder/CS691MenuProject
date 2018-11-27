@@ -38,6 +38,10 @@
 						}
 						echo "<dd>$" . $item['price'] . "</dd>\n";					
 					echo "</dl>\n";
+					echo "<p>\n";
+            			echo "<label for='" . $item['entry'] . "'>Qty:</label><br>\n";
+            			echo "<input class='quantity' form='orderForm' type='text' name='" . $item['entry'] . "' id='" . $item['entry'] . "'>\n";
+        			echo "</p>\n";
 				echo "</div>\n";
 			}
 		?>        
@@ -59,6 +63,10 @@
 						}
 						echo "<dd>$" . $item['price'] . "</dd>\n";					
 					echo "</dl>\n";
+					echo "<p>\n";
+            			echo "<label for='" . $item['entry'] . "'>Qty:</label><br>\n";
+            			echo "<input class='quantity' form='orderForm' type='text' name='" . $item['entry'] . "' id='" . $item['entry'] . "'>\n";
+        			echo "</p>\n";
 				echo "</div>\n";
 			}
 		?>        
@@ -80,9 +88,19 @@
 						}
 						echo "<dd>$" . $item['price'] . "</dd>\n";					
 					echo "</dl>\n";
+					echo "<p>\n";
+            			echo "<label for='" . $item['entry'] . "'>Qty:</label><br>\n";
+            			echo "<input class='quantity' form='orderForm' type='text' name='" . $item['entry'] . "' id='" . $item['entry'] . "'>\n";
+        			echo "</p>\n";
 				echo "</div>\n";
 			}
 		?>
+        <div class="order">
+        	<p class="left" style="line-height: 40px;"><?php echo $_GET['order']; ?></p>
+        	<form id="orderForm" action="submit-order.php" method="post">
+				<p><input class="submit" type="submit" name="submit" value="Submit Order"></p>
+            </form>
+		</div>
 		<div class="warning">
 			<p>"Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of food borne illness."</p>
 		</div>                              

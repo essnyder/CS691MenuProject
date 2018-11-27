@@ -1,6 +1,6 @@
 <?php 
-	session_start();
-	include_once("db-vars.php"); 
+session_start();
+include_once("db-vars.php"); 
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -23,7 +23,20 @@
 				echo "<h" . $tagline['style'] . ">" . $tagline['message'] . "</h" . $tagline['style'] . ">\n";
 			echo "</div>\n";
 			
-			if ($_POST['entry'] == "Tagline") {
+			if ($_POST['entry'] == "Run Reports") {
+		?>
+        <div class="form">
+            <form class="center" action="run-reports.php" method="post">
+                <p>
+                    <label for="date">Week Starting:</label><br>
+                    <input class="text" type="text" name="date" id="date" placeholder="YYYY-MM-DD" required>
+                </p>                                                                                         	
+                <p><input class="submit" type="submit" name="submit" value="Run Reports"></p>
+            </form>
+        </div>
+        <?php				
+			}
+			elseif ($_POST['entry'] == "Tagline") {
 		?>			
         <div class="form">
             <form class="center" action="edit-tagline.php" method="post">
