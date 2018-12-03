@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div id="content">
-    	<img src="images/logo.png" alt="logo">        
+    	<img src="images/logo1.png" alt="logo">        
 		<?php 
 			$query = "SELECT * FROM tagline";
 			$result = mysql_query($query);

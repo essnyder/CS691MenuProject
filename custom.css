@@ -40,14 +40,14 @@ h2 {
 @keyframes fire {100% {background-position: 0% 100%;}}
 
 h3 {
-	background: #ffffff -webkit-gradient(linear, left top, right top, from(#000000), to(#ffffff), color-stop(0.5, #000000)) 0 0 no-repeat;
+	background: #ffffff -webkit-gradient(linear, left top, right top, from(#000000), to(#ffffff), color-stop(0.1, #000000)) 0 0 no-repeat;
 		background-size: auto auto;
 		background-clip: border-box;
     -webkit-background-size: 125px;
     color: rgba(0, 0, 0, 0.1);
     -webkit-background-clip: text;
     -webkit-animation-name: shine;
-    -webkit-animation-duration: 5s;
+    -webkit-animation-duration: 3s;
     -webkit-animation-iteration-count: infinite;
 }
 
@@ -254,6 +254,5 @@ input {padding-left: 4px;}
 /***********************/
 @media print {
    * {text-align: left;}
-   #content {width: 800px;}
    img, form, .category, .tagline {display: none;}
 }

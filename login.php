@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div id="content">
-    	<img src="images/logo.png" alt="logo">        
+    	<img src="images/logo1.png" alt="logo">        
 		<?php 
 			$query = "SELECT * FROM tagline";
 			$result = mysql_query($query);
@@ -44,6 +44,6 @@
             </form>
      	</div>
 	</div>
-    <footer><a href="index.php">Back to Menu</a></footer>
+    <footer><a href="index1.php">Back to Menu</a></footer>
 </body>
 </html>
