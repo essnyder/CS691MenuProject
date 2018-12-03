@@ -5,22 +5,13 @@
 	<title>CS691 - Login Page</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="custom.css" type="text/css">
-	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
 	<div id="content">
-    	<img src="images/logo1.png" alt="logo">        
-		<?php 
-			$query = "SELECT * FROM tagline";
-			$result = mysql_query($query);
-			$tagline = mysql_fetch_array($result); 
-
-			echo "<div class='tagline'>\n";
-				echo "<h" . $tagline['style'] . ">" . $tagline['message'] . "</h" . $tagline['style'] . ">\n";
-			echo "</div>\n";
-		?>        
-		<div class="category">			
+    	<div class="tagline">
+			<h4>Centralized Login</h4>
+		</div>
+        <div class="category">			
 			<?php
             	if ($_GET['status'] == "Failed to Login") {
             		$class = "red";
@@ -34,16 +25,17 @@
             <form class="center" action="verify-user.php" method="post">
                 <p>
                 	<label for="user_rank">User Rank:</label><br>
-                	<input class="text" type="text" name="user_rank" id="user_rank" required>
+                	<input class="text" type="text" name="user_rank" required>
                 </p>
                 <p>
                 	<label for="user_password">User Password:</label><br>
-                	<input class="text" type="password" name="user_password" id="user_password" required>
+                	<input class="text" type="password" name="user_password" required>
+                    <input type="hidden" name="restaurantId" value="<?php echo $_GET['restaurantId']; ?>">
                 </p>                                                                                          	
                 <p><input class="submit" type="submit" name="submit" value="Login"></p>
             </form>
      	</div>
 	</div>
-    <footer><a href="index1.php">Back to Menu</a></footer>
+    <footer><a href="index<?php echo $_GET['restaurantId']; ?>.php">Back to Menu</a></footer>
 </body>
 </html>
