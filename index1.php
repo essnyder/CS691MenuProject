@@ -91,9 +91,13 @@
 			}
 		?>
         <div class="order">
-        	<p class="left" style="line-height: 40px;"><?php echo $_GET['order']; ?></p>
-        	<form id="orderForm" action="submit-order.php" method="post">
-				<p><input class="submit" type="submit" name="submit" value="Submit Order"></p>
+        	<p class="right">
+                <label for="tip">Tip:</label><br>
+                <input class="tip" form="orderForm" type="text" name="tip">
+                <input form="orderForm" type="hidden" name="restaurantId" value="1">
+            </p>
+            <form class="left" id="orderForm" action="submit-order.php" method="post">
+                    <p><input class="submitOrder" type="submit" name="submit" value="Submit Order"></p>
             </form>
 		</div>
 		<div class="warning">
