@@ -1,7 +1,8 @@
 <?php
 include_once("db-vars.php");
+$tip = $_POST['tip'];
 
-$query = "SELECT entry, price FROM menu WHERE status = 'Active'";
+$query = "SELECT entry, price FROM menu WHERE status = 'Active' AND restaurantId = " . $_POST['restaurantId'];
 $result = mysql_query($query); 
 $total = 0;
 $orderInfo = "";
@@ -16,10 +17,13 @@ while ($row = mysql_fetch_array($result)) {
 }
 
 $orderInfo .= "----------------------------------------------------<br>\n";
-$orderInfo .= "Total Cost = $" . $totalCost . "\n";
+$orderInfo .= "Total Cost = $" . $totalCost . "<br>\n";
+$orderInfo .= "Tip = $" . $tip . "\n";
+$orderStatus = "Your order has been submitted.";
+$orderTime = time();
 
-mysql_query ("INSERT INTO orders (orderInfo, totalCost) VALUES ('$orderInfo', '$totalCost')");
+mysql_query ("INSERT INTO orders (orderInfo, totalCost, tip, orderStatus, orderTime, restaurantId) VALUES ('$orderInfo', '$totalCost', '$tip', '$orderStatus', '$orderTime', '" . $_POST['restaurantId'] . "')");
 
-header("Location: index.php?order=Your%20order%20was%20received.");
+header("Location: order-status.php?orderTime=$orderTime");
 die();
 ?>
