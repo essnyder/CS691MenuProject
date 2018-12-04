@@ -39,32 +39,29 @@ include_once("db-vars.php");
 				</div>
 		<?php
             }
-		?>                                    
-		<?php 
+ 
 			$query = "SELECT * FROM orders WHERE orderStatus != 'Your order has been completed.' AND restaurantId = " . $_SESSION['restaurantId'];
 			$result = mysql_query($query); 
 			
-			while ($orderData = mysql_fetch_array($result)) {				
-				echo "<div class='director'>\n";
-					echo "<dl>\n";
-						echo "<dd>Order #" . $orderData['orderNumber'] . "</dd>\n";												
-						echo "<dd><select form='statusUpdateForm' class='text' name='orderStatus'>\n";
-                			echo "<option>" . $orderData['orderStatus'] . "</option>\n";
-							echo "<option>Your order has been received.</option>\n";
-							echo "<option>Your order is being prepared.</option>\n";
-							echo "<option>Your order is own way to your table.</option>\n";
-							echo "<option>Your order has been completed.</option>\n";
-							echo "<input form='statusUpdateForm' type='hidden' name='orderTime' value='" . $orderData['orderTime'] . "'>\n";
-						echo "</dd>\n";					
-					echo "</dl>\n";
-				echo "</div>\n";
+			while ($orderData = mysql_fetch_array($result)) {
+		?>				
+				<div class="director">
+                	<form id="statusUpdateForm" action="update-status.php" method="post">
+						<p>Order #<?php echo $orderData['orderNumber']; ?></p>											
+						<select class="text" name="orderStatus">
+                			<option><?php echo $orderData['orderStatus']; ?></option>
+                            <option>Your order has been received.</option>
+							<option>Your order is being prepared.</option>
+							<option>Your order is own way to your table.</option>
+							<option>Your order has been completed.</option>
+                        </select>
+						<input type="hidden" name="orderTime" value="<?php echo $orderData['orderTime']; ?>">
+						<p><input class="submit" type="submit" name="submit" value="Update Status"></p>
+					</form>
+                </div>
+        <?php
 			}
-		?>        
-        <div class="order">
-        	<form id="statusUpdateForm" action="update-status.php" method="post">
-				<p><input class="submit" type="submit" name="submit" value="Update Status"></p>
-            </form>
-		</div>                              
+		?>                                      
 	</div>    
 	<footer><a href="logout.php">Logout</a></footer>
 </body>
