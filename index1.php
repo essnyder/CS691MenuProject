@@ -5,8 +5,6 @@
 	<title>CS691 - Home Page</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" href="custom.css" type="text/css">
-	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
 	<div id="content">
@@ -102,6 +100,6 @@
 			<p>"Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of food borne illness."</p>
 		</div>                              
 	</div>
-	<footer><a href="login.php?status=Login">Login</a></footer>
+	<footer><a href="login.php?status=Login&restaurantId=1">Login</a></footer>
 </body>
 </html>

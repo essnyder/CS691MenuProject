@@ -24,12 +24,12 @@
 		<div class="form">
             <form class="center" action="verify-user.php" method="post">
                 <p>
-                	<label for="user_rank">User Rank:</label><br>
-                	<input class="text" type="text" name="user_rank" required>
+                	<label for="userRank">User Rank:</label><br>
+                	<input class="text" type="text" name="userRank" required>
                 </p>
                 <p>
-                	<label for="user_password">User Password:</label><br>
-                	<input class="text" type="password" name="user_password" required>
+                	<label for="userPassword">User Password:</label><br>
+                	<input class="text" type="password" name="userPassword" required>
                     <input type="hidden" name="restaurantId" value="<?php echo $_GET['restaurantId']; ?>">
                 </p>                                                                                          	
                 <p><input class="submit" type="submit" name="submit" value="Login"></p>

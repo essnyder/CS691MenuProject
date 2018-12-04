@@ -1,21 +1,21 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_rank'])) {$_SESSION['user_rank'] = $_POST['user_rank'];}
-if (!isset($_SESSION['user_password'])) {$_SESSION['user_password'] = $_POST['user_password'];}
-$_SESSION['restaurantId'] = $_POST['restaurantId'];
+if (!isset($_SESSION['userRank'])) {$_SESSION['userRank'] = $_POST['userRank'];}
+if (!isset($_SESSION['userPassword'])) {$_SESSION['userPassword'] = $_POST['userPassword'];}
+if (!isset($_SESSION['restaurantId'])) {$_SESSION['restaurantId'] = $_POST['restaurantId'];}
 
 include_once("db-vars.php"); 
 
-$query = "SELECT * FROM employees WHERE rank = '" . $_SESSION['user_rank'] . "' AND restaurantId = " . $_SESSION['restaurantId'];
+$query = "SELECT * FROM employees WHERE userRank = '" . $_SESSION['userRank'] . "' AND restaurantId = " . $_SESSION['restaurantId'];
 $result = mysql_query($query);
 $employeeData = mysql_fetch_array($result); 
 					
-if (($_SESSION['user_rank'] == "Director") && ($_SESSION['user_password'] == $employeeData['password'])) {
-	header("Location: director.php?status=Logged%20in%20as%20" . $_SESSION['user_rank'] . "&restaurantId=" . $_SESSION['restaurantId']);
+if (($_SESSION['userRank'] == "Director") && ($_SESSION['userPassword'] == $employeeData['userPassword'])) {
+	header("Location: director.php");
 	die();
 }
-elseif ($_SESSION['user_password'] == $employeeData['password']) {
-	header("Location: edit-select.php?status=Logged%20in%20as%20" . $_SESSION['user_rank'] . "&restaurantId=" . $_SESSION['restaurantId']);
+elseif ($_SESSION['userPassword'] == $employeeData['userPassword']) {
+	header("Location: task-selector.php");
 	die();
 }
 else {

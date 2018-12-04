@@ -19,10 +19,10 @@
 			echo "</div>\n";
 		?>        
 		<div class="category">
-			<p>Entrees</p>
+			<p>Raw Meaty Bone</p>
 		</div>        
 		<?php 
-			$query = "SELECT * FROM menu WHERE category = 'entree' AND status = 'Active' AND restaurantId = 2";
+			$query = "SELECT * FROM menu WHERE category = 'rmb' AND status = 'Active' AND restaurantId = 2";
 			$result = mysql_query($query); 
 			
 			while ($item = mysql_fetch_array($result)) {
@@ -43,10 +43,10 @@
 			}
 		?>        
 		<div class="category">
-			<p>Desserts</p>
+			<p>Muscle Meat</p>
 		</div>        
 		<?php 
-			$query = "SELECT * FROM menu WHERE category = 'dessert' AND status = 'Active' AND restaurantId = 2";
+			$query = "SELECT * FROM menu WHERE category = 'mm' AND status = 'Active' AND restaurantId = 2";
 			$result = mysql_query($query); 
 			
 			while ($item = mysql_fetch_array($result)) {
@@ -67,10 +67,10 @@
 			}
 		?>        
 		<div class="category">
-			<p>Beverages</p>
+			<p>Organ Meat</p>
 		</div>        
 		<?php 
-			$query = "SELECT * FROM menu WHERE category = 'beverage' AND status = 'Active' AND restaurantId = 2";
+			$query = "SELECT * FROM menu WHERE category = 'organ' AND status = 'Active' AND restaurantId = 2";
 			$result = mysql_query($query); 
 			
 			while ($item = mysql_fetch_array($result)) {
@@ -90,6 +90,30 @@
 				echo "</div>\n";
 			}
 		?>
+		<div class="category">
+			<p>Tasty Treats</p>
+		</div>        
+		<?php 
+			$query = "SELECT * FROM menu WHERE category = 'treat' AND status = 'Active' AND restaurantId = 2";
+			$result = mysql_query($query); 
+			
+			while ($item = mysql_fetch_array($result)) {
+				echo "<div class='item'>\n";
+					echo "<dl>\n";					
+						echo "<dd>" . $item['entry'] . "</dd\n>";
+						echo "<dd>" . $item['description'] . "</dd>\n";
+						if ($item['allergens']) {
+							echo "<dd>Allergens: " . $item['allergens'] . "</dd>\n";
+						}
+						echo "<dd>$" . $item['price'] . "</dd>\n";					
+					echo "</dl>\n";
+					echo "<p>\n";
+            			echo "<label for='" . $item['entry'] . "'>Qty:</label><br>\n";
+            			echo "<input class='quantity' form='orderForm' type='text' name='" . $item['entry'] . "' id='" . $item['entry'] . "'>\n";
+        			echo "</p>\n";
+				echo "</div>\n";
+			}
+		?>        
         <div class="order">
         	<p class="left" style="line-height: 40px;"><?php echo $_GET['order']; ?></p>
         	<form id="orderForm" action="submit-order.php" method="post">
@@ -100,6 +124,6 @@
 			<p>"Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of food borne illness."</p>
 		</div>                              
 	</div>
-	<footer><a href="login.php?status=Login">Login</a></footer>
+	<footer><a href="login.php?status=Login&restaurantId=2">Login</a></footer>
 </body>
 </html>

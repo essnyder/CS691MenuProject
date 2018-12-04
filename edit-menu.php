@@ -8,21 +8,16 @@ include_once("db-vars.php");
 	<title>CS691 - Edit Menu Page</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="custom.css" type="text/css">
-	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
 	<div id="content">
-    	<img src="images/logo1.png" alt="logo">       
-		<?php 
-			$query = "SELECT * FROM tagline";
-			$result = mysql_query($query);
-			$tagline = mysql_fetch_array($result); 
-
-			echo "<div class='tagline'>\n";
-				echo "<h" . $tagline['style'] . ">" . $tagline['message'] . "</h" . $tagline['style'] . ">\n";
-			echo "</div>\n";
-			
+    	<div class="tagline">
+			<h4>Menu Editor & Report Generator</h4>
+		</div>      
+		<div class="category">
+			<p>Logged in as <?php echo $_SESSION['userRank']; ?> for Restaurant #<?php echo $_SESSION['restaurantId']; ?></p>
+		</div>
+		<?php	
 			if ($_POST['entry'] == "Run Reports") {
 		?>
         <div class="form">
@@ -36,7 +31,24 @@ include_once("db-vars.php");
         </div>
         <?php				
 			}
-			elseif ($_POST['entry'] == "Tagline") {
+			elseif ($_POST['entry'] == "Switch Restaurant") {
+		?>
+        <div class="form">
+            <form class="center" action="switch-restaurant.php" method="post">
+                <p>
+                    <label for="restaurantId">Restaurant Id:</label><br>
+                    <select class="text" name="restaurantId" required>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                	</select>
+                </p>                                                                                         	
+                <p><input class="submit" type="submit" name="submit" value="Switch Restaurant"></p>
+            </form>
+        </div>
+        <?php				
+			}
+			elseif ($_POST['entry'] == "Edit Tagline") {
 		?>			
         <div class="form">
             <form class="center" action="edit-tagline.php" method="post">
@@ -45,7 +57,7 @@ include_once("db-vars.php");
                     <input class="text" type="text" name="message" id="message" placeholder="<?php echo $tagline['message'] ?>" required>
                 </p>
                 <p>
-                    <select class="text" name="style" id="style">
+                    <select class="text" name="style">
                         <option value="1" selected>Plain</option>
                         <option value="2">Fire</option>
                         <option value="3">Shimmer</option>
@@ -70,7 +82,7 @@ include_once("db-vars.php");
                     <?php echo $row['entry']; ?>
                 </p>
                 <?php 
-					if ($_SESSION['user_rank'] == "Staff") {
+					if ($_SESSION['userRank'] == "Staff") {
 				?>
 					<input type="hidden" name="action" id="action" value="change">
 				<?php

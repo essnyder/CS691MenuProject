@@ -1,6 +1,6 @@
 <?php 
-	session_start();
-	include_once("db-vars.php"); 
+session_start();
+include_once("db-vars.php"); 
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -8,28 +8,17 @@
 	<title>CS691 - Director Page</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" href="custom.css" type="text/css">
-	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
 	<div id="content">
-    	<img src="images/logo1.png" alt="logo">        
-		<?php 
-			$query = "SELECT * FROM tagline";
-			$result = mysql_query($query);
-			$tagline = mysql_fetch_array($result); 
-
-			echo "<div class='tagline'>\n";
-				echo "<h" . $tagline['style'] . ">" . $tagline['message'] . "</h" . $tagline['style'] . ">\n";
-			echo "</div>\n";
-		?>       
+    	<div class="tagline">
+			<h4>Director's Page</h4>
+		</div>      
 		<div class="category">
-			<?php
-            	echo "<p>" . $_GET['status'] . "</p>\n";
-			?>
-		</div>              
+			<p>Logged in as <?php echo $_SESSION['userRank']; ?> for Restaurant #<?php echo $_SESSION['restaurantId']; ?></p>
+		</div>                  
 		<?php 
-			$query = "SELECT * FROM orders WHERE server IS NULL LIMIT 1";
+			$query = "SELECT * FROM orders WHERE server IS NULL AND restaurantId = " . $_SESSION['restaurantId'] . " LIMIT 1";
 			$result = mysql_query($query); 
 			
 			while ($row = mysql_fetch_array($result)) {
