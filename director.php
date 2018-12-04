@@ -52,7 +52,7 @@ include_once("db-vars.php");
                 			<option><?php echo $orderData['orderStatus']; ?></option>
                             <option>Your order has been received.</option>
 							<option>Your order is being prepared.</option>
-							<option>Your order is own way to your table.</option>
+							<option>Your order is on way to your table.</option>
 							<option>Your order has been completed.</option>
                         </select>
 						<input type="hidden" name="orderTime" value="<?php echo $orderData['orderTime']; ?>">

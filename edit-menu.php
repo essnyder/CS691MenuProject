@@ -134,7 +134,7 @@ include_once("db-vars.php");
                 </p>
                	<p>
                     <label for="allergens">Allergens:</label><br>
-                    <input class="text" type="text" name="allergens" id="allergens" placeholder="List of any allergens." required>
+                    <input class="text" type="text" name="allergens" id="allergens" placeholder="List of any allergens.">
                 </p>
                	<p>
                     <label for="price">Price:</label><br>
@@ -142,7 +142,7 @@ include_once("db-vars.php");
                 </p>
                 <p>
                     <label for="category">Category:</label><br>
-                    <input class="text" type="text" name="category" id="category" placeholder="Category of item: entree, dessert, or beverage." required>
+                    <input class="text" type="text" name="category" id="category" placeholder="Category of item." required>
                 </p>                                                                                          	
                 <p><input class="submit" type="submit" name="submit" value="Add New Item"></p>
             </form>

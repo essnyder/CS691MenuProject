@@ -1,4 +1,8 @@
-<?php include_once("db-vars.php"); ?>
+<?php
+include_once("db-vars.php");
+session_start();
+session_destroy();
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
